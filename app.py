@@ -44,6 +44,7 @@ def can_access(url):
             if tube.check_availability() is None:
                 access=True
         except:
+            
             st.warning('--Invalid link---')
             st.experimental_rerun()
 #             ph = st.empty()
