@@ -78,16 +78,19 @@ st.set_page_config(page_title=" Youtube downloader", layout="wide")
 
 # ====== SIDEBAR ======
 with st.sidebar:
-
     st.title("Youtube download app")
+    with st.form(key='youtube', clear_on_submit=True):
+        
+        url = st.text_input("Insert your link here", key="url")
 
-    url = st.text_input("Insert your link here", key="url")
+        fmt_type = st.selectbox("Choose format:", ['video (only)', 'audio (only)', 'video + audio'], key='fmt')
 
-    fmt_type = st.selectbox("Choose format:", ['video (only)', 'audio (only)', 'video + audio'], key='fmt')
+        fmt, progressive = refine_format(fmt_type)
+  
+        submit_text = st.form_submit_button(label='Submit')
 
-    fmt, progressive = refine_format(fmt_type)
 
-    if can_access(url):
+    if can_access(url) and submit_text:
 
         tube = YouTube(url)
 
