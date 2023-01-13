@@ -44,7 +44,19 @@ def can_access(url):
             if tube.check_availability() is None:
                 access=True
         except:
-            pass
+            st.warning('--Invalid link---')
+            ph = st.empty()
+            N = 10
+            bar = st.progress(0)
+            for secs in range(0, N, 1):
+                mm, ss = (N - secs) // 60, (N - secs) % 60
+                bar.progress((secs + 1) * 10)
+                ph.metric("Redirecting in...", f"{mm:02d}:{ss:02d}")
+                sleep(1)
+
+        st.experimental_rerun()
+  
+        
     return access
 
 def refine_format(fmt_type: str='audio') -> (str, bool):
