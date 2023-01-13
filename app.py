@@ -130,13 +130,13 @@ with st.sidebar:
 
         st.button("Clear all address boxes", on_click=clear_text)
 
-        st.info(
-            "This is an open source project and you are very welcome to contribute your "
-            "comments, questions, resources and apps as "
-            "[issues](https://github.com/maxmarkov/streamlit-youtube/issues) or "
-            "[pull requests](https://github.com/maxmarkov/streamlit-youtube/pulls) "
-            "to the [source code](https://github.com/maxmarkov/streamlit-youtube). "
-        )
+#         st.info(
+#             "This is an open source project and you are very welcome to contribute your "
+#             "comments, questions, resources and apps as "
+#             "[issues](https://github.com/maxmarkov/streamlit-youtube/issues) or "
+#             "[pull requests](https://github.com/maxmarkov/streamlit-youtube/pulls) "
+#             "to the [source code](https://github.com/maxmarkov/streamlit-youtube). "
+#         )
 
 
 
@@ -148,7 +148,7 @@ if can_access(url):
     st.write(tube.thumbnail_url)
 #     imgUrl = f"http://i.ytimg.com/vi/{link2[1]}/maxresdefault.jpg"
 #     st.write(imgUrl)
-    with st.spinner(f'Searching video on youtube for {url}.....'):
+    with st.spinner(f'Searching video on youtube for {tube.title}.....'):
         
         st.video(url)
         col1, col2 = st.columns(2)
