@@ -46,7 +46,7 @@ def can_access(url):
         except:
             
             st.warning('--Invalid link---')
-            st.experimental_rerun()
+            #st.experimental_rerun()
 #             ph = st.empty()
 #             N = 10
 #             bar = st.progress(0)
