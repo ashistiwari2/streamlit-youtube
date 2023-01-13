@@ -45,16 +45,18 @@ def can_access(url):
                 access=True
         except:
             st.warning('--Invalid link---')
-            ph = st.empty()
-            N = 10
-            bar = st.progress(0)
-            for secs in range(0, N, 1):
-                mm, ss = (N - secs) // 60, (N - secs) % 60
-                bar.progress((secs + 1) * 10)
-                ph.metric("Redirecting in...", f"{mm:02d}:{ss:02d}")
-                sleep(1)
-
             st.experimental_rerun()
+#             ph = st.empty()
+#             N = 10
+#             bar = st.progress(0)
+#             for secs in range(0, N, 1):
+#                 mm, ss = (N - secs) // 60, (N - secs) % 60
+#                 bar.progress((secs + 1) * 10)
+#                 ph.metric("Redirecting in...", f"{mm:02d}:{ss:02d}")
+#                 sleep(1)
+        
+
+#                st.experimental_rerun()
   
         
     return access
@@ -79,18 +81,19 @@ st.set_page_config(page_title=" Youtube downloader", layout="wide")
 # ====== SIDEBAR ======
 with st.sidebar:
     st.title("Youtube download app")
-    with st.form(key='youtube', clear_on_submit=True):
+    url = st.text_input("Insert your link here", key="url")
+
+    fmt_type = st.selectbox("Choose format:", ['video (only)', 'audio (only)', 'video + audio'], key='fmt')
+
+    fmt, progressive = refine_format(fmt_type)
+#     with st.form(key='youtube', clear_on_submit=True):
         
-        url = st.text_input("Insert your link here", key="url")
 
-        fmt_type = st.selectbox("Choose format:", ['video (only)', 'audio (only)', 'video + audio'], key='fmt')
-
-        fmt, progressive = refine_format(fmt_type)
   
-        submit_text = st.form_submit_button(label='Submit')
+#         submit_text = st.form_submit_button(label='Submit')
 
 
-    if can_access(url) and submit_text:
+    if can_access(url) :
 
         tube = YouTube(url)
 
