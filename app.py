@@ -54,7 +54,7 @@ def can_access(url):
                 ph.metric("Redirecting in...", f"{mm:02d}:{ss:02d}")
                 sleep(1)
 
-        st.experimental_rerun()
+            st.experimental_rerun()
   
         
     return access
