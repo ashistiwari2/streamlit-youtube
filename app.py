@@ -135,7 +135,7 @@ if can_access(url):
         col1, col2 = st.columns(2)
         sleep(8)
         with col1:
-            st.image(tube.thumbnail_url, caption=yt.title, width=200, channels="RGB", output_format="auto")
+            st.image(tube.thumbnail_url, caption=tube.title, width=200, channels="RGB", output_format="auto")
             st.write("Title :{}".format(tube.title))
             st.write("Views :{}".format(tube.views))
             
