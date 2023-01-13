@@ -4,6 +4,7 @@ from pytube import YouTube, StreamQuery
 
 import base64
 import os
+from time import sleep
 
 # https://www.youtube.com/watch?v=Ch5VhJzaoaI&t=90s
 
