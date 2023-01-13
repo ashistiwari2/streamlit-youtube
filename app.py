@@ -125,5 +125,22 @@ with st.sidebar:
 if can_access(url):
     if streams_fmt is None:
         st.write(f"No {fmt_type} stream found")
-    st.video(url)
-    st.subheader('HI')
+    st.write(tube.thumbnail_url)
+#     imgUrl = f"http://i.ytimg.com/vi/{link2[1]}/maxresdefault.jpg"
+#     st.write(imgUrl)
+    with st.spinner(f'Searching video on youtube for {url}.....'):
+        
+        st.video(url)
+        col1, col2 = st.columns(2)
+        sleep(8)
+        with col1:
+            st.image(tube.thumbnail_url, caption=yt.title, width=200, channels="RGB", output_format="auto")
+            st.write("Title :{}".format(tube.title))
+            st.write("Views :{}".format(tube.views))
+            
+        with col2:
+            st.write("Duration:{}".format(tube.length))
+            st.write("Descrption:{}".format(tube.description))
+            st.write("Rating:{}".format(tube.rating))
+     
+ 
